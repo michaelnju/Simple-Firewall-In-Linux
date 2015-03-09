@@ -1,2 +1,0 @@
-This is a simple Gateway written in C with Linux's Netfilter mechanism.
-In this gateway, user can achieve  ICMP, FTP and HTTP Packet control.
