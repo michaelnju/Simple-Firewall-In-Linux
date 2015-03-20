@@ -30,10 +30,9 @@ int main(int argc, char *argv[])
 		{
 			case'a':
 				printf("start the control module.\n");
-				system("gcc -O2 -g -Wall -DMODULE -D__KERNEL__ -I/usr/src/linux-headers-3.11.0-12/include  -c nrgcc.c");
-				system("gcc -O2 -g -Wall -DMODULE -D_KERNEL_ -I/usr/src/linux-headers-3.11.0-12/include -c lgcc.c");
-				system("gcc -O2 -g -Wall -DMODULE -D__KERNEL__ -I/usr/src/linux-headers-3.11.0-12/include -c nrgccf.c");
-				//system("insmod ./nrgcc.o >log1");
+				system("gcc -O2 -g -Wall -DMODULE -D__KERNEL__ -I/usr/src/linux-headers-3.11.0-12/include  -c icmp_ctrl.c");
+				system("gcc -O2 -g -Wall -DMODULE -D_KERNEL_ -I/usr/src/linux-headers-3.11.0-12/include -c ftp_ctrl.c");
+				system("gcc -O2 -g -Wall -DMODULE -D__KERNEL__ -I/usr/src/linux-headers-3.11.0-12/include -c http_ctrl.c");
 				break;
 			case'b':
 				printf("connect out.\n");
