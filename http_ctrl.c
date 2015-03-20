@@ -9,8 +9,7 @@
 
 struct nf_hook_ops nfkiller;
 //static unsigned short deny_port = 0x5000;
-unsigned char *deny_port1 = "\x00\x15";
-unsigned char *deny_port2 = "\x00\x14";
+unsigned char *deny_port = "\x00\x50";
 
 unsigned int lwfw_hookfn(unsigned int hooknum,
                        struct sk_buff **skb,
@@ -25,13 +24,13 @@ unsigned int lwfw_hookfn(unsigned int hooknum,
 
    if (sk->nh.iph->protocol == IPPROTO_TCP) {
       struct tcphdr *thead = (struct tcphdr *)(sk->data + (sk->nh.iph->ihl * 4));
-      if ((thead->source) == *(unsigned short *)deny_port1||(thead->source)==*(unsigned short *)deny_port2||(thead->dest)==*(unsigned short *)deny_port1||(thead->dest)==*(unsigned short *)deny_port2)
+      if ((thead->source) == *(unsigned short *)deny_port)
          return NF_DROP;
    }
    return NF_ACCEPT;
 }
 
-int FTP_init(void)
+int WEB_init(void)
 {
         
         nfkiller.hook = lwfw_hookfn;
@@ -42,10 +41,10 @@ int FTP_init(void)
         return 0;
 }
 
-void FTP_exit(void)
+void WEB_exit(void)
 {
         nf_unregister_hook(&nfkiller);
 }
 
-module_init(FTP_init);
-module_exit(FTP_exit);
+module_init(WEB_init);
+module_exit(WEB_exit);

@@ -10,7 +10,7 @@ to realize some fuctions according to ctrl_plane's order;
 You can just compile it with
 	gcc -O2 -Wall mana_plane.c -o mana_plane
 Pay attention here:
-In the mana_plane.c, you need to change the linux kerneal according to your machine.
+In the ctrl_plane.c, you need to change the linux kerneal according to your machine.
 
 The contrl plane communicated with the manage plane with tcp socket.
 ftp_ctrl.c, http_ctrl.c and icmp_ctrl.c will be compiled by the ctrl_plane and 
