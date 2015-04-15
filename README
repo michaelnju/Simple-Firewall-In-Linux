@@ -1,5 +1,5 @@
------This is a simple Gateway written in C with Linux's Netfilter mechanism.----
-In this gateway, user can achieve  ICMP, FTP and HTTP Packet control.
+-----This is a simple Firewall written in C with Linux's Netfilter mechanism.----
+In this Firewall, user can achieve  ICMP, FTP and HTTP Packet control.
 
 The ctrl_plane.c is designed for the user to manage the firewall function.
 You can just compile it with:
